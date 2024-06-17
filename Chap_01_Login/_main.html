@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chap_01_Login/_main';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Linux Introduction" href="../Chap_02_Linux/_main.html" />
     <link rel="prev" title="Lorenz User Guide" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,8 +179,8 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Server Login</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="../Chap_02_Linux/_main.html">Linux Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chap_03_Conda/_main.html">Python Environment</a></li>
 </ul>
 
     </div>
@@ -375,18 +376,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Server Login</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putty-recommend">PuTTY (recommend)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cmd">CMD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putty-recommend">PuTTY (recommend)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmd">CMD</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">MacOS</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todo">TODO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">MacOS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todo">TODO</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -399,11 +398,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="server-login">
 <h1>Server Login<a class="headerlink" href="#server-login" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="windows">
-<h1>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h1>
+<section id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h2>
 <section id="putty-recommend">
-<h2>PuTTY (recommend)<a class="headerlink" href="#putty-recommend" title="Link to this heading">#</a></h2>
+<h3>PuTTY (recommend)<a class="headerlink" href="#putty-recommend" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Download <a class="reference external" href="https://www.putty.org/">PuTTY</a></p></li>
 <li><p>Open PuTTY</p></li>
@@ -425,23 +423,42 @@ document.write(`
 </div>
 </section>
 <section id="cmd">
-<h2>CMD<a class="headerlink" href="#cmd" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Press win+S, search cmd</p></li>
-<li><p>Open command prompt (hereafter cmd)<img alt="CMD_1" src="../_images/CMD_1.png" /></p></li>
-<li><p>Type in below command <br />
-<code>username&#64;server-ip</code> <br />
-for example, <code><a class="reference external" href="mailto:robot2&#37;&#52;&#48;140&#46;112&#46;67&#46;89">robot2<span>&#64;</span>140<span>&#46;</span>112<span>&#46;</span>67<span>&#46;</span>89</a></code> <br />
-<img alt="CMD_2" src="../_images/CMD_2.png" /></p></li>
+<h3>CMD<a class="headerlink" href="#cmd" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Press Win+S, search cmd</p></li>
+<li><p>Open command prompt<img alt="CMD_1" src="../_images/CMD_1.png" /></p></li>
+<li><p>Type in below command (remember to replace username and server-ip)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">username</span><span class="nd">@server</span><span class="o">-</span><span class="n">ip</span>
+</pre></div>
+</div>
+<p><img alt="CMD_2" src="../_images/CMD_2.png" /></p>
+</li>
 <li><p>Type in your password</p></li>
 <li><p>Now you’ve log in remote server!<img alt="CMD_3" src="../_images/CMD_3.png" /></p></li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When type in password, your password won’t display on terminal for information security</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you type wrong password over 3 times, you’ll get temporarily ip ban, so please type your password carefully.</p>
+</div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="macos">
-<h1>MacOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h1>
+<section id="macos">
+<h2>MacOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h2>
 <section id="todo">
-<h2>TODO<a class="headerlink" href="#todo" title="Link to this heading">#</a></h2>
+<h3>TODO<a class="headerlink" href="#todo" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When type in password, your password won’t display on terminal for information security</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you type wrong password over 3 times, you’ll get temporarily ip ban, so please type your password carefully.</p>
+</div>
+</section>
 </section>
 </section>
 
@@ -484,6 +501,15 @@ for example, <code><a class="reference external" href="mailto:robot2&#37;&#52;&#
         <p class="prev-next-title">Lorenz User Guide</p>
       </div>
     </a>
+    <a class="right-next"
+       href="../Chap_02_Linux/_main.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Linux Introduction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -500,18 +526,16 @@ for example, <code><a class="reference external" href="mailto:robot2&#37;&#52;&#
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Server Login</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putty-recommend">PuTTY (recommend)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cmd">CMD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putty-recommend">PuTTY (recommend)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmd">CMD</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">MacOS</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todo">TODO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">MacOS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todo">TODO</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
