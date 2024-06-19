@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chap_02_Linux/_main';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -181,6 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Chap_01_Login/_main.html">Server Login</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Linux Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chap_03_Conda/_main.html">Python Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chap_04_Jupyter/_main.html">Jupyter Notebook/Lab</a></li>
 </ul>
 
     </div>
@@ -376,8 +379,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-user-setting">Linux User Setting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-command">basic command</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-basic-command">Linux Basic Command</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cd-pwd">cd &amp; pwd</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ls">ls</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top">top</a></li>
@@ -389,13 +391,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#man-help">man &amp; help</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-basic-command">Not basic command</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-basic-command-optional">Linux Basic Command (Optional)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#screen">screen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kill">kill</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bash">bash</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-for-external">Command for external</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-not-basic-command">Linux NOT Basic Command</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-user-setting">Linux User Setting</a></li>
 </ul>
             </nav>
         </div>
@@ -409,31 +412,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="linux-introduction">
 <h1>Linux Introduction<a class="headerlink" href="#linux-introduction" title="Link to this heading">#</a></h1>
-<section id="linux-user-setting">
-<h2>Linux User Setting<a class="headerlink" href="#linux-user-setting" title="Link to this heading">#</a></h2>
-<p>You can type in below code to see what’s in your current directory, the exact meaning of this command will discuss later on.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
-</pre></div>
-</div>
-<p>You’ll see files like</p>
-<ul class="simple">
-<li><p>.bashrc</p></li>
-<li><p>.bash_profile</p></li>
-<li><p>.zshrc
-<img alt="barhrc_1" src="../_images/bashrc_1.png" /></p></li>
-</ul>
-<p>These are your <strong>user setting</strong>, but in an unfriendly way.</p>
-<p>Now, let’s have a look on .bashrc! Type in below code</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="o">.</span><span class="n">bashrc</span>
-</pre></div>
-</div>
-<p>You should be able to see things like this (no need to be exactly the same, but should be similar)
-<img alt="barhrc_2" src="../_images/bashrc_2.png" />
-It is OK if you don’t know what these command exactly means, just have to know that what this code does is copy-pasting other peoples’ user setting.</p>
-</section>
-<section id="basic-command">
-<h2>basic command<a class="headerlink" href="#basic-command" title="Link to this heading">#</a></h2>
-<p>This user guide is for apprentice, so advanced usage won’t discuss here.</p>
+<p>Linux is an operating system deployed on our Lorenz server, like other OS, you can have your personal setting, writing codes, training AI, do many things as you want.</p>
+<p>However, unlike Windows or MacOS, the graphical user interface is not a part of Linux, that means all things are done by command!</p>
+<p>For example, if you want to delete a file in Windows, just select that file, right click and press delete button, but if you want to do this in Linux, you have to <em><strong>type in your command</strong></em> like <code>rm /path/to/file</code></p>
+<p>In the below section, I’ll briefly explain what your should know as a novice to Linux</p>
+<section id="linux-basic-command">
+<h2>Linux Basic Command<a class="headerlink" href="#linux-basic-command" title="Link to this heading">#</a></h2>
+<p>Command can be executed in many ways, but for now I’ll introduce only one way - terminal, the interface you see when you log in Lorenz server</p>
+<p>What you have to do is, type in commands you want and press Enter!</p>
 <section id="cd-pwd">
 <h3>cd &amp; pwd<a class="headerlink" href="#cd-pwd" title="Link to this heading">#</a></h3>
 <p>pwd is shorthand for “print work directory”</p>
@@ -524,10 +510,11 @@ It is OK if you don’t know what these command exactly means, just have to know
 </div>
 </section>
 </section>
-<section id="not-basic-command">
-<h2>Not basic command<a class="headerlink" href="#not-basic-command" title="Link to this heading">#</a></h2>
+<section id="linux-basic-command-optional">
+<h2>Linux Basic Command (Optional)<a class="headerlink" href="#linux-basic-command-optional" title="Link to this heading">#</a></h2>
 <section id="screen">
 <h3>screen<a class="headerlink" href="#screen" title="Link to this heading">#</a></h3>
+<p><em><strong>TODO tmux replace</strong></em></p>
 <p>screen create new screen/terminal, allows user to do many things at the same time</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">screen</span>
 </pre></div>
@@ -539,6 +526,15 @@ It is OK if you don’t know what these command exactly means, just have to know
 <p>if you want to reconnect to screen (if only one screen)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">screen</span> <span class="o">-</span><span class="n">r</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Require linuxbrew to use screen, you can simply put below into your .bashrc</p>
+<p>eval “<span class="math notranslate nohighlight">\((/home/linuxbrew/.linuxbrew/bin/brew shellenv)&quot;
+export PATH=&quot;/home/linuxbrew/.linuxbrew/opt/dpkg/bin:\)</span>PATH”</p>
+<p>and then do below in your terminal</p>
+<p>source .bashrc</p>
+<p>Done! Now you can use screen!</p>
 </div>
 </section>
 <section id="kill">
@@ -565,29 +561,37 @@ Please make sure all your process terminated as expected, you can check this by 
 </div>
 </section>
 </section>
-<section id="command-for-external">
-<h2>Command for external<a class="headerlink" href="#command-for-external" title="Link to this heading">#</a></h2>
-<p>Most above commands are built-in for linux, but it is possible to install external commands on linux</p>
-<p>For what I know,</p>
+<section id="linux-not-basic-command">
+<h2>Linux NOT Basic Command<a class="headerlink" href="#linux-not-basic-command" title="Link to this heading">#</a></h2>
+<p>I’ll not go into these command, just let you know</p>
 <ul class="simple">
 <li><p>git</p></li>
 <li><p>cdo</p></li>
 <li><p>ncdump</p></li>
-<li><p>ncview</p></li>
-<li><p>grads</p></li>
 <li><p>and else</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>These external commands are accessible only when your user setting (like .bashrc) configuration contains them!</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ssh</span>
+</section>
+<section id="linux-user-setting">
+<h2>Linux User Setting<a class="headerlink" href="#linux-user-setting" title="Link to this heading">#</a></h2>
+<p>You can type in below code to see what’s in your current directory, the exact meaning of this command will discuss later on.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
 </div>
+<p>You’ll see files like</p>
+<ul class="simple">
+<li><p>.bashrc</p></li>
+<li><p>.bash_profile</p></li>
+<li><p>.zshrc
+<img alt="barhrc_1" src="../_images/bashrc_1.png" /></p></li>
+</ul>
+<p>These are your <strong>user setting</strong>, but in an unfriendly way.</p>
+<p>Now, let’s have a look on .bashrc! Type in below code</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="o">.</span><span class="n">bashrc</span>
+</pre></div>
 </div>
-</div>
+<p>You should be able to see things like this (no need to be exactly the same, but should be similar)
+<img alt="barhrc_2" src="../_images/bashrc_2.png" />
+It is OK if you don’t know what these command exactly means, just have to know that what this code does is copy-pasting other peoples’ user setting.</p>
 </section>
 </section>
 
@@ -655,8 +659,7 @@ Please make sure all your process terminated as expected, you can check this by 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-user-setting">Linux User Setting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-command">basic command</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-basic-command">Linux Basic Command</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cd-pwd">cd &amp; pwd</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ls">ls</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top">top</a></li>
@@ -668,13 +671,14 @@ Please make sure all your process terminated as expected, you can check this by 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#man-help">man &amp; help</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-basic-command">Not basic command</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-basic-command-optional">Linux Basic Command (Optional)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#screen">screen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kill">kill</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bash">bash</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-for-external">Command for external</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-not-basic-command">Linux NOT Basic Command</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-user-setting">Linux User Setting</a></li>
 </ul>
   </nav></div>
 

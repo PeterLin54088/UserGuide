@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chap_03_Conda/_main';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Jupyter Notebook/Lab" href="../Chap_04_Jupyter/_main.html" />
     <link rel="prev" title="Linux Introduction" href="../Chap_02_Linux/_main.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -180,6 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Chap_01_Login/_main.html">Server Login</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chap_02_Linux/_main.html">Linux Introduction</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Python Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chap_04_Jupyter/_main.html">Jupyter Notebook/Lab</a></li>
 </ul>
 
     </div>
@@ -352,7 +354,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -368,6 +372,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-miniconda">Install Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-python-environments">Creating python environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protect-your-environment-optional">Protect your environment (optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-conda-command">Basic conda command</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -379,13 +394,121 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python-environment">
 <h1>Python Environment<a class="headerlink" href="#python-environment" title="Link to this heading">#</a></h1>
+<p>Python environment is not built-in in Linux, but we can install it as needed, and in below section I’ll have “miniconda” as example to manage python environment</p>
+<section id="install-miniconda">
+<h2>Install Miniconda<a class="headerlink" href="#install-miniconda" title="Link to this heading">#</a></h2>
+<p>Just follow guides on <a class="reference external" href="https://docs.anaconda.com/miniconda/">Official Website</a>, but remember make some modifications if you want Miniconda install at other places</p>
+<p>If you REALLY don’t know how to do it yourself, then do these commands one by one</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir -p /work/$USER/miniconda3
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /work/$USER/miniconda.sh
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bash /work/$USER/miniconda.sh -b -u -p /work/$USER/miniconda3
+</pre></div>
+</div>
+<p><img alt="conda_1" src="../_images/conda_1.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rm -rf /work/$USER/miniconda.sh
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/work/$USER/miniconda3/bin/conda init bash
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Then you should notice the (base) appears like this <img alt="conda_2" src="../_images/conda_2.png" /></p>
+</section>
+<section id="creating-python-environments">
+<h2>Creating python environments<a class="headerlink" href="#creating-python-environments" title="Link to this heading">#</a></h2>
+<p>You can follow guides from <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">Official Website</a></p>
+<p>Still, if you REALLY don’t know how to do it yourself, then do these commands one by one</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">default</span><span class="o">-</span><span class="n">packages</span> <span class="o">-</span><span class="n">n</span> <span class="n">myenv</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">myenv</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">update</span> <span class="o">--</span><span class="n">file</span> <span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">b08209033</span><span class="o">/</span><span class="n">CONDA_ENVIRONMENT</span><span class="o">/</span><span class="n">_DEFAULT_ENVIRONMENT</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">prune</span>
+</pre></div>
+</div>
+<p><img alt="conda_3" src="../_images/conda_3.png" />
+<img alt="conda_4" src="../_images/conda_4.png" />
+***fill in myenv as you like
+***This may takes long time
+***press y if needed</p>
+<p>And now you should have created a python environment and can use python! You can try to type in python in terminal, it should work now!</p>
+</section>
+<section id="protect-your-environment-optional">
+<h2>Protect your environment (optional)<a class="headerlink" href="#protect-your-environment-optional" title="Link to this heading">#</a></h2>
+<p>Assuming you’ve read the official website, you know that environments can be created or deleted as you want, but, the base environment is an exception</p>
+<p>The base environment cannot be created or deleted, so it’s recommended to protect you base environment, below is some methods to protect it</p>
+<ol class="arabic">
+<li><p>Set auto_activate_base to false</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="nb">set</span> <span class="n">auto_activate_base</span> <span class="n">false</span>
+</pre></div>
+</div>
+</li>
+<li><p>Restrict modifier in base <br />
+Add below codes into your .bashrc (after conda initialization)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="c1"># &gt;&gt;&gt; conda base protection &lt;&lt;&lt;</span>
+ <span class="n">function</span> <span class="n">pip</span><span class="p">(){</span>
+   <span class="k">if</span> <span class="p">[</span> <span class="s2">&quot;${CONDA_PROMPT_MODIFIER-}&quot;</span> <span class="o">=</span> <span class="s2">&quot;(base) &quot;</span> <span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="p">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;install&quot;</span> <span class="p">];</span> <span class="n">then</span>
+     <span class="n">echo</span> <span class="s2">&quot;Base environment is protected by local user.&quot;</span>
+   <span class="k">else</span>
+     <span class="n">command</span> <span class="n">pip</span> <span class="s2">&quot;$@&quot;</span>
+   <span class="n">fi</span>
+ <span class="p">}</span>
+ 
+ <span class="n">function</span> <span class="n">extended_conda</span><span class="p">(){</span>
+   <span class="k">if</span> <span class="p">[</span> <span class="s2">&quot;${CONDA_PROMPT_MODIFIER-}&quot;</span> <span class="o">=</span> <span class="s2">&quot;(base) &quot;</span> <span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="p">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;install&quot;</span> <span class="p">];</span> <span class="n">then</span>
+     <span class="n">echo</span> <span class="s2">&quot;Base environment is protected by local user.&quot;</span>
+   <span class="k">else</span>
+     <span class="n">conda</span> <span class="s2">&quot;$@&quot;</span>
+   <span class="n">fi</span>
+ <span class="p">}</span>
+ <span class="n">alias</span> <span class="n">conda</span><span class="o">=</span><span class="n">extended_conda</span>
+ <span class="c1"># &lt;&lt;&lt; conda base protection &lt;&lt;&lt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="basic-conda-command">
+<h2>Basic conda command<a class="headerlink" href="#basic-conda-command" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>conda create -n myenv<br />
+create new environment</p></li>
+<li><p>conda activate myenv<br />
+activate “myenv” environment</p></li>
+<li><p>conda deactivate <br />
+deactivate from current environment</p></li>
+<li><p>conda list <br />
+list packages in current environment</p></li>
+<li><p>conda install mypac <br />
+install “mypac” package</p></li>
+<li><p>conda remove mypac <br />
+uninstall “mypac” package</p></li>
+<li><p>conda env list <br />
+list all environment you mount</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">myenv</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CondaError: Run &#39;conda init&#39; before &#39;conda activate&#39;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -427,12 +550,39 @@ document.write(`
         <p class="prev-next-title">Linux Introduction</p>
       </div>
     </a>
+    <a class="right-next"
+       href="../Chap_04_Jupyter/_main.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Jupyter Notebook/Lab</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-miniconda">Install Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-python-environments">Creating python environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protect-your-environment-optional">Protect your environment (optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-conda-command">Basic conda command</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
