@@ -4,9 +4,10 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+- file: Chap_01_Login/_main
+- file: Chap_02_Linux/_main
+- file: Chap_03_Conda/_main
+- file: Chap_04_Jupyter/_main
 
 # format: jb-book
 # root: index
