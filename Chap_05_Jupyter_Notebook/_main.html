@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Notebooks with MyST Markdown &#8212; Lorenz Server User Guide</title>
+    <title>IDEs &#8212; Lorenz Server User Guide</title>
   
   
   
@@ -57,9 +57,10 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tmp/markdown-notebooks';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chap_05_Jupyter_Notebook/_main';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Miniconda" href="../Chap_04_Conda/_main.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,12 +178,12 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Chap_01_Introduction/_main.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chap_02_Login/_main.html">Access the Remote Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chap_03_Linux/_main.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chap_04_Conda/_main.html">Miniconda</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chap_05_Jupyter_Notebook/_main.html">IDEs</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">IDEs</a></li>
 </ul>
 
     </div>
@@ -256,7 +255,7 @@
       
       
       
-      <li><a href="https://github.com/PeterLin54088/UserGuide/issues/new?title=Issue%20on%20page%20%2Ftmp/markdown-notebooks.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/PeterLin54088/UserGuide/issues/new?title=Issue%20on%20page%20%2FChap_05_Jupyter_Notebook/_main.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +285,7 @@
       
       
       
-      <li><a href="../_sources/tmp/markdown-notebooks.md" target="_blank"
+      <li><a href="../_sources/Chap_05_Jupyter_Notebook/_main.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -296,7 +295,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -370,7 +369,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Notebooks with MyST Markdown</h1>
+    <h1>IDEs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,7 +379,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ides">What is IDEs?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-ides">How to Use IDEs?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab">Jupyter Lab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-jupyter-lab">Install Jupyter Lab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-jupyter-lab">Run Jupyter Lab</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#port-forwarding">Port Forwarding</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run">Run</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
 </ul>
             </nav>
         </div>
@@ -392,50 +402,97 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="notebooks-with-myst-markdown">
-<h1>Notebooks with MyST Markdown<a class="headerlink" href="#notebooks-with-myst-markdown" title="Link to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Link to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="ides">
+<h1>IDEs<a class="headerlink" href="#ides" title="Link to this heading">#</a></h1>
+<p>When working with code—whether writing, compiling, debugging, or managing versions—there are many tasks to handle. An Integrated Development Environment (IDE) simplifies these processes by providing a unified platform to manage all aspects of coding efficiently.</p>
+<section id="what-is-ides">
+<h2>What is IDEs?<a class="headerlink" href="#what-is-ides" title="Link to this heading">#</a></h2>
+<p>An Integrated Development Environment (IDE) is a software application that provides comprehensive facilities for software development. It typically includes:</p>
+<ul class="simple">
+<li><p>Code Editor</p></li>
+<li><p>Compiler/Interpreter</p></li>
+<li><p>Debugger</p></li>
+<li><p>Build Automation Tools</p></li>
+<li><p>Version Control Integration</p></li>
+<li><p>Project Management</p></li>
+</ul>
+<p>Examples of popular IDEs include Visual Studio Code, PyCharm, Spyder and Jupyter Notebook.</p>
+</section>
+<section id="how-to-use-ides">
+<h2>How to Use IDEs?<a class="headerlink" href="#how-to-use-ides" title="Link to this heading">#</a></h2>
+<p>On Windows, you can use full-featured IDEs with a graphical interface. However, on systems like Linux that operate through a command-line interface and lack a GUI, you can still work effectively with the following solutions:</p>
+<ul class="simple">
+<li><p>Visual Studio Code: By combining a text editor with SSH, you can edit files remotely.</p></li>
+<li><p>JupyterLab: Provides a web-based, IDE-like interface for interactive computing.</p></li>
+</ul>
+<p>In the following sections, we’ll briefly demonstrate how to use these tools.</p>
+</section>
+<section id="jupyter-lab">
+<h2>Jupyter Lab<a class="headerlink" href="#jupyter-lab" title="Link to this heading">#</a></h2>
+<p>JupyterLab is an open-source, web-based interactive development environment (IDE) that extends the capabilities of Jupyter Notebooks.</p>
+<section id="install-jupyter-lab">
+<h3>Install Jupyter Lab<a class="headerlink" href="#install-jupyter-lab" title="Link to this heading">#</a></h3>
+<p>If you haven’t installed JupyterLab and the related extensions in your conda environment, run the following command first:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">jupyter</span> <span class="n">jupyterlab</span> <span class="n">nodejs</span> <span class="n">ipykernel</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</section>
+<section id="run-jupyter-lab">
+<h3>Run Jupyter Lab<a class="headerlink" href="#run-jupyter-lab" title="Link to this heading">#</a></h3>
+<section id="port-forwarding">
+<h4>Port Forwarding<a class="headerlink" href="#port-forwarding" title="Link to this heading">#</a></h4>
+<p>To run JupyterLab properly, you’ll need to set up SSH port forwarding. This requires adding specific arguments to your SSH command.</p>
+<p><strong>For Command Prompt (cmd.exe) and Terminal Users</strong></p>
+<p>Use the following command, replacing SOURCE_PORT and DESTINATION_PORT with your chosen port numbers (recommended range: 1024-49151). Also, be sure to replace USER_NAME&#64;IP_ADDRESS with your actual username and the IP address of the remote server::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">L</span> <span class="n">localhost</span><span class="p">:</span><span class="n">SOURCE_PORT</span><span class="p">:</span><span class="n">localhost</span><span class="p">:</span><span class="n">DESTINATION_PORT</span> <span class="n">USER_NAME</span><span class="nd">@IP_ADDRESS</span>
 </pre></div>
 </div>
+<p><strong>For PuTTY Users</strong></p>
+<ol class="arabic">
+<li><p>In the PuTTY configuration window, navigate to SSH -&gt; Tunnels (on the left panel).</p></li>
+<li><p>In the Source port field, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">localhost</span><span class="p">:</span><span class="n">SOURCE_PORT</span>
+</pre></div>
 </div>
+</li>
+<li><p>In the Destination port field, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">localhost</span><span class="p">:</span><span class="n">DESTINATION_PORT</span>
+</pre></div>
 </div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<!-- ```{seealso}
-Jupyter Book uses [Jupytext](https://jupytext.readthedocs.io/en/latest/) to convert text-based files to notebooks, and can support [many other text-based notebook files](https://jupyterbook.org/file-types/jupytext.html).
-```
-
-## Create a notebook with MyST Markdown
-
-MyST Markdown notebooks are defined by two things:
-
-1. YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-   See the YAML at the top of this page for example.
-2. The presence of `{code-cell}` directives, which will be executed with your book.
-
-That's all that is needed to get started!
-
-## Quickly add YAML metadata for MyST Notebooks
-
-If you have a markdown file and you'd like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:
-
-```
-jupyter-book myst init path/to/markdownfile.md
-``` --></section>
+</li>
+<li><p>Click Add and remember to save your session settings before connecting.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While the <strong>SOURCE_PORT</strong> and <strong>DESTINATION_PORT</strong> serve different purposes, it’s okay to use the same number for both in this case.</p>
+</div>
+</section>
+<section id="run">
+<h4>Run<a class="headerlink" href="#run" title="Link to this heading">#</a></h4>
+<p>After logging into the remote server with port forwarding, start JupyterLab with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">lab</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">browser</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="n">SOURCE_PORT</span>
+</pre></div>
+</div>
+<p>Next, open your web browser and enter localhost:SOURCE_PORT in the address bar. You should then see the JupyterLab interface.</p>
+</section>
+</section>
+</section>
+<section id="visual-studio-code">
+<h2>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h2>
+<p>Visual Studio Code (VSCode) is a free, open-source code editor developed by Microsoft. It’s widely used by developers for writing and editing code in various programming languages.</p>
+<p>Follow these steps to use SSH over VSCode:</p>
+<ol class="arabic simple">
+<li><p>Download <a class="reference external" href="https://code.visualstudio.com/download">VSCode</a> and install it.</p></li>
+<li><p>Open the extension panel, search ssh.</p></li>
+<li><p>Install the Remote-SSH extension.</p></li>
+<li><p>Your left panel should now have a remote explorer.</p></li>
+<li><p>Click New Remote and type in the ssh command just like in cmd.exe.</p></li>
+<li><p>Wait for a long while.</p></li>
+<li><p>Now your should be able to log into remote server.</p></li>
+<li><p>You are now logged into the remote server! Your screen should look like this:</p></li>
+</ol>
+<p>TODO ipykernel and jupyter notebook</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -447,16 +504,16 @@ jupyter-book myst init path/to/markdownfile.md
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "__main__"
         },
         kernelOptions: {
-            name: "python3",
-            path: "./tmp"
+            name: "__main__",
+            path: "./Chap_05_Jupyter_Notebook"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = '__main__'</script>
 
                 </article>
               
@@ -468,6 +525,15 @@ jupyter-book myst init path/to/markdownfile.md
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chap_04_Conda/_main.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Miniconda</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -484,7 +550,18 @@ jupyter-book myst init path/to/markdownfile.md
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ides">What is IDEs?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-ides">How to Use IDEs?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab">Jupyter Lab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-jupyter-lab">Install Jupyter Lab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-jupyter-lab">Run Jupyter Lab</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#port-forwarding">Port Forwarding</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run">Run</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
 </ul>
   </nav></div>
 

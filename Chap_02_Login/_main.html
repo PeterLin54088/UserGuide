@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Notebooks with MyST Markdown &#8212; Lorenz Server User Guide</title>
+    <title>Access the Remote Server &#8212; Lorenz Server User Guide</title>
   
   
   
@@ -57,9 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tmp/markdown-notebooks';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chap_02_Login/_main';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Linux" href="../Chap_03_Linux/_main.html" />
+    <link rel="prev" title="Introduction" href="../Chap_01_Introduction/_main.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,9 +179,9 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Chap_01_Introduction/_main.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chap_02_Login/_main.html">Access the Remote Server</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Access the Remote Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chap_03_Linux/_main.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chap_04_Conda/_main.html">Miniconda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chap_05_Jupyter_Notebook/_main.html">IDEs</a></li>
@@ -256,7 +256,7 @@
       
       
       
-      <li><a href="https://github.com/PeterLin54088/UserGuide/issues/new?title=Issue%20on%20page%20%2Ftmp/markdown-notebooks.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/PeterLin54088/UserGuide/issues/new?title=Issue%20on%20page%20%2FChap_02_Login/_main.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +286,7 @@
       
       
       
-      <li><a href="../_sources/tmp/markdown-notebooks.md" target="_blank"
+      <li><a href="../_sources/Chap_02_Login/_main.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -296,7 +296,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -370,7 +370,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Notebooks with MyST Markdown</h1>
+    <h1>Access the Remote Server</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,7 +380,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ssh">What is SSH?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-ssh">How to use SSH</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putty">PuTTY</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmd">CMD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal">Terminal</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -392,50 +398,69 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="notebooks-with-myst-markdown">
-<h1>Notebooks with MyST Markdown<a class="headerlink" href="#notebooks-with-myst-markdown" title="Link to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Link to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="access-the-remote-server">
+<h1>Access the Remote Server<a class="headerlink" href="#access-the-remote-server" title="Link to this heading">#</a></h1>
+<p>Once you have your account, password, and the remote server’s IP address, you can access the server and log in via SSH.</p>
+<section id="what-is-ssh">
+<h2>What is SSH?<a class="headerlink" href="#what-is-ssh" title="Link to this heading">#</a></h2>
+<p>SSH, or Secure Shell, is a protocol that establishes a secure channel for communication between a client and a server.</p>
+<p>If this sounds complex, just remember: SSH is a tool for creating a secure connection.</p>
+</section>
+<section id="how-to-use-ssh">
+<h2>How to use SSH<a class="headerlink" href="#how-to-use-ssh" title="Link to this heading">#</a></h2>
+<p>Typically, your operating system will include an SSH client for command-line use, or you can opt for a graphical SSH client based on your preference.</p>
+<p>In the following sections, I’ll use Command Prompt and PuTTY for Windows, and Terminal for macOS as examples.</p>
+<section id="putty">
+<h3>PuTTY<a class="headerlink" href="#putty" title="Link to this heading">#</a></h3>
+<p>PuTTY is a popular SSH client for Windows that allows you to connect to a remote server using the SSH protocol.</p>
+<p>Follow these steps to log in to the remote server:</p>
+<ol class="arabic simple">
+<li><p>Download <a class="reference external" href="https://www.putty.org/">PuTTY</a> and open it.</p></li>
+<li><p>Enter the Host Name (IP address) of the remote server.</p></li>
+<li><p>Enter <strong>any name</strong> you like in the “Saved Sessions” field.</p></li>
+<li><p>Your PuTTY window should now look like this: <img alt="PuTTY_1" src="../_images/PuTTY_1.png" /></p></li>
+<li><p>Select your saved session and click <strong>Open</strong>.</p></li>
+<li><p>Your PuTTY window should now look like this: <img alt="PuTTY_2" src="../_images/PuTTY_2.png" /></p></li>
+<li><p>Enter your username and password when prompted.</p></li>
+<li><p>You are now logged into the remote server! Your screen should look like this: <img alt="PuTTY_3" src="../_images/PuTTY_3.png" /></p></li>
+</ol>
+</section>
+<section id="cmd">
+<h3>CMD<a class="headerlink" href="#cmd" title="Link to this heading">#</a></h3>
+<p>cmd.exe, or Command Prompt, is the command-line interpreter for Windows. It allows users to execute commands, run scripts, and manage files and directories using text-based commands.</p>
+<p>Follow these steps to log in to the remote server:</p>
+<ol class="arabic">
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">Win+S</span></code> and search for <code class="docutils literal notranslate"><span class="pre">cmd</span></code>.</p></li>
+<li><p>Open Command Prompt. <img alt="CMD_1" src="../_images/CMD_1.png" /></p></li>
+<li><p>Type the following command, <strong>remember to replace USERNAME and IP_ADDRESS</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">USERNAME</span><span class="nd">@IP_ADDRESS</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<p><img alt="CMD_2" src="../_images/CMD_2.png" /></p>
+</li>
+<li><p>Enter your password when prompted.</p></li>
+<li><p>You are now logged into the remote server! Your screen should look like this: <img alt="CMD_3" src="../_images/CMD_3.png" /></p></li>
+</ol>
+</section>
+<section id="terminal">
+<h3>Terminal<a class="headerlink" href="#terminal" title="Link to this heading">#</a></h3>
+<p>(Many thanks to 張淳皓 for helping me complete this section!)</p>
+<p>Roughly speaking, Terminal on macOS is similar to cmd.exe on Windows.</p>
+<p>Follow these steps to log in to the remote server:</p>
+<ol class="arabic">
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">Space</span></code> and search for <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>.</p></li>
+<li><p>Open Terminal.</p></li>
+<li><p>Type the following command, <strong>remember to replace USERNAME and IP_ADDRESS</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">USERNAME</span><span class="nd">@IP_ADDRESS</span>
 </pre></div>
 </div>
-</div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<!-- ```{seealso}
-Jupyter Book uses [Jupytext](https://jupytext.readthedocs.io/en/latest/) to convert text-based files to notebooks, and can support [many other text-based notebook files](https://jupyterbook.org/file-types/jupytext.html).
-```
-
-## Create a notebook with MyST Markdown
-
-MyST Markdown notebooks are defined by two things:
-
-1. YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-   See the YAML at the top of this page for example.
-2. The presence of `{code-cell}` directives, which will be executed with your book.
-
-That's all that is needed to get started!
-
-## Quickly add YAML metadata for MyST Notebooks
-
-If you have a markdown file and you'd like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:
-
-```
-jupyter-book myst init path/to/markdownfile.md
-``` --></section>
+<p><img alt="terminal_1" src="../_images/terminal_1.png" /></p>
+</li>
+<li><p>Enter your password when prompted.</p></li>
+<li><p>You are now logged into the remote server! Your screen should look like this: <img alt="terminal_2" src="../_images/terminal_2.png" /></p></li>
+</ol>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -447,16 +472,16 @@ jupyter-book myst init path/to/markdownfile.md
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "__main__"
         },
         kernelOptions: {
-            name: "python3",
-            path: "./tmp"
+            name: "__main__",
+            path: "./Chap_02_Login"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = '__main__'</script>
 
                 </article>
               
@@ -468,6 +493,24 @@ jupyter-book myst init path/to/markdownfile.md
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chap_01_Introduction/_main.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Chap_03_Linux/_main.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Linux</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -484,7 +527,13 @@ jupyter-book myst init path/to/markdownfile.md
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ssh">What is SSH?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-ssh">How to use SSH</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putty">PuTTY</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmd">CMD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal">Terminal</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

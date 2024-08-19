@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Notebooks with MyST Markdown &#8212; Lorenz Server User Guide</title>
+    <title>Miniconda &#8212; Lorenz Server User Guide</title>
   
   
   
@@ -57,9 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tmp/markdown-notebooks';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chap_04_Conda/_main';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IDEs" href="../Chap_05_Jupyter_Notebook/_main.html" />
+    <link rel="prev" title="Linux" href="../Chap_03_Linux/_main.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,11 +179,11 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Chap_01_Introduction/_main.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chap_02_Login/_main.html">Access the Remote Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chap_03_Linux/_main.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chap_04_Conda/_main.html">Miniconda</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Miniconda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chap_05_Jupyter_Notebook/_main.html">IDEs</a></li>
 </ul>
 
@@ -256,7 +256,7 @@
       
       
       
-      <li><a href="https://github.com/PeterLin54088/UserGuide/issues/new?title=Issue%20on%20page%20%2Ftmp/markdown-notebooks.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/PeterLin54088/UserGuide/issues/new?title=Issue%20on%20page%20%2FChap_04_Conda/_main.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +286,7 @@
       
       
       
-      <li><a href="../_sources/tmp/markdown-notebooks.md" target="_blank"
+      <li><a href="../_sources/Chap_04_Conda/_main.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -296,7 +296,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -370,7 +370,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Notebooks with MyST Markdown</h1>
+    <h1>Miniconda</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,7 +380,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-miniconda">What is Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-miniconda">Install Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-environments">Create Python Environments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-environment">Base Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customize-environments">Customize Environments</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -392,50 +398,71 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="notebooks-with-myst-markdown">
-<h1>Notebooks with MyST Markdown<a class="headerlink" href="#notebooks-with-myst-markdown" title="Link to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Link to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="miniconda">
+<h1>Miniconda<a class="headerlink" href="#miniconda" title="Link to this heading">#</a></h1>
+<p>Linux doesn’t come with a built-in Python environment by default, so we need to install Python manually. To do this, we’ll need a tool that can install Python, manage packages, and handle environments. While there are several options available, this guide will focus on using Miniconda to install Python and manage packages and environments.</p>
+<p>If you’re unfamiliar with these steps or find them cumbersome, you can use a pre-existing Python environment set up by other users, although this is not recommended.</p>
+<section id="what-is-miniconda">
+<h2>What is Miniconda<a class="headerlink" href="#what-is-miniconda" title="Link to this heading">#</a></h2>
+<p>Miniconda is a minimal installer for Conda, a widely used package and environment management tool in the Python programming ecosystem.</p>
+<p>Many readers may be familiar with Anaconda; you can think of Miniconda as a lightweight version of Anaconda.</p>
+</section>
+<section id="install-miniconda">
+<h2>Install Miniconda<a class="headerlink" href="#install-miniconda" title="Link to this heading">#</a></h2>
+<p>Just follow the instructions on the <a class="reference external" href="https://docs.anaconda.com/miniconda/">Official Website</a> (specifically the <strong>Quick command line install</strong>), but make sure to modify the steps if you want to install Miniconda in a different location.</p>
+<p>While it’s recommended to try it on your own, if you’re uncertain about how to do it, you can follow these commands one by one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir -p /work/$USER/miniconda3
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /work/$USER/miniconda.sh
 </pre></div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bash /work/$USER/miniconda.sh -b -u -p /work/$USER/miniconda3
+</pre></div>
 </div>
+<p><img alt="conda_1" src="../_images/conda_1.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rm -rf /work/$USER/miniconda.sh
+</pre></div>
 </div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<!-- ```{seealso}
-Jupyter Book uses [Jupytext](https://jupytext.readthedocs.io/en/latest/) to convert text-based files to notebooks, and can support [many other text-based notebook files](https://jupyterbook.org/file-types/jupytext.html).
-```
-
-## Create a notebook with MyST Markdown
-
-MyST Markdown notebooks are defined by two things:
-
-1. YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-   See the YAML at the top of this page for example.
-2. The presence of `{code-cell}` directives, which will be executed with your book.
-
-That's all that is needed to get started!
-
-## Quickly add YAML metadata for MyST Notebooks
-
-If you have a markdown file and you'd like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:
-
-```
-jupyter-book myst init path/to/markdownfile.md
-``` --></section>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/work/$USER/miniconda3/bin/conda init bash
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Then you should notice the (base) appears like this <img alt="conda_2" src="../_images/conda_2.png" /></p>
+</section>
+<section id="create-python-environments">
+<h2>Create Python Environments<a class="headerlink" href="#create-python-environments" title="Link to this heading">#</a></h2>
+<section id="base-environment">
+<h3>Base Environment<a class="headerlink" href="#base-environment" title="Link to this heading">#</a></h3>
+<p>By default, Miniconda comes with a base environment. However, it’s best to avoid using the base environment for your projects. Instead, create a new environment for each project.</p>
+</section>
+<section id="customize-environments">
+<h3>Customize Environments<a class="headerlink" href="#customize-environments" title="Link to this heading">#</a></h3>
+<p>Follow the instructions on the <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">Official Website</a> to learn how to set up new environments.</p>
+<p>It’s recommended to try creating a new environment on your own, but if you’re unsure how to proceed, you can follow these commands step by step. Be sure to replace <strong>myenv</strong> with your desired environment name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">myenv</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">myenv</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/work/$USER/miniconda3/bin/conda init bash
+</pre></div>
+</div>
+<p>If you need any packages, such as h5py or netCDF, in your current environment, install them using the following command. Remember to replace package_name with the actual package name.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">package_name</span>
+</pre></div>
+</div>
+<p>You should now have a new Python environment set up and ready for use!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tired of installing packages one by one? Try using a .yml file to manage dependencies, for example
+conda env update –file environment.yml</p>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -447,16 +474,16 @@ jupyter-book myst init path/to/markdownfile.md
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "__main__"
         },
         kernelOptions: {
-            name: "python3",
-            path: "./tmp"
+            name: "__main__",
+            path: "./Chap_04_Conda"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = '__main__'</script>
 
                 </article>
               
@@ -468,6 +495,24 @@ jupyter-book myst init path/to/markdownfile.md
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chap_03_Linux/_main.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Linux</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Chap_05_Jupyter_Notebook/_main.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">IDEs</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -484,7 +529,13 @@ jupyter-book myst init path/to/markdownfile.md
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-miniconda">What is Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-miniconda">Install Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-environments">Create Python Environments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-environment">Base Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customize-environments">Customize Environments</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

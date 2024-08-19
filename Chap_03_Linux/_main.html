@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Linux &#8212; Lorenz Server User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chap_03_Linux/_main';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Miniconda" href="../Chap_04_Conda/_main.html" />
+    <link rel="prev" title="Access the Remote Server" href="../Chap_02_Login/_main.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Lorenz Server User Guide - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Lorenz Server User Guide - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Lorenz User Guide
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chap_01_Introduction/_main.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chap_02_Login/_main.html">Access the Remote Server</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chap_04_Conda/_main.html">Miniconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chap_05_Jupyter_Notebook/_main.html">IDEs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/PeterLin54088/UserGuide" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/PeterLin54088/UserGuide/issues/new?title=Issue%20on%20page%20%2FChap_03_Linux/_main.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Chap_03_Linux/_main.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Linux</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-linux">What is Linux?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-bash">What is bash?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-execute-command">How to Execute Command?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-commands">Basic commands</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-and-directory-management">File and Directory Management</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-and-editing-files">Viewing and Editing Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-information">System Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#networking">Networking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#others">Others</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-bashrc-and-bash-profile">What is .bashrc and .bash_profile?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#have-a-look">Have A Look</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alias">Alias</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="linux">
+<h1>Linux<a class="headerlink" href="#linux" title="Link to this heading">#</a></h1>
+<p>After logging into the remote server, you might have observed that the operating system over remote server is neither Windows nor macOS. While most personal computers use Windows or macOS, many remote servers operate on Unix-based systems.</p>
+<p>If you’re accustomed to Windows, Linux may seem a bit unfamiliar initially. However, it is a powerful and versatile operating system with many distinctive features.</p>
+<section id="what-is-linux">
+<h2>What is Linux?<a class="headerlink" href="#what-is-linux" title="Link to this heading">#</a></h2>
+<p>Linux is a free, open-source operating system derived from Unix, renowned for its stability, security, and flexibility.</p>
+<p>Unlike Windows or macOS, which rely on graphical user interfaces, Linux primarily uses a command-line interface. This means you perform tasks by <strong>typing commands into a shell</strong>.</p>
+<p>To help you get started with Linux, we’ll cover the basics of the bash shell, introduce essential commands for beginners, and explain the .bashrc and .bash_profile files used for configuration.</p>
+</section>
+<section id="what-is-bash">
+<h2>What is bash?<a class="headerlink" href="#what-is-bash" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">bash</span></code> is a type of shell—a specific command-line interface that lets users interact with the operating system.</p>
+<p>If you’re having trouble understanding, think of <code class="docutils literal notranslate"><span class="pre">bash</span></code> as <strong>similar to the Python interpreter</strong>: instead of running Python code, bash runs shell commands and scripts (.sh files).</p>
+</section>
+<section id="how-to-execute-command">
+<h2>How to Execute Command?<a class="headerlink" href="#how-to-execute-command" title="Link to this heading">#</a></h2>
+<p>Running Commands Directly</p>
+<ol class="arabic simple">
+<li><p>Open the Terminal</p></li>
+<li><p>Type your command</p></li>
+<li><p>Press Enter</p></li>
+</ol>
+<p>Running Multiple Commands from a Script</p>
+<ol class="arabic simple">
+<li><p>Open a .sh file in a text editor</p></li>
+<li><p>Type your commands in the file</p></li>
+<li><p>Save the file</p></li>
+<li><p>Run the .sh file using bash</p></li>
+</ol>
+</section>
+<section id="basic-commands">
+<h2>Basic commands<a class="headerlink" href="#basic-commands" title="Link to this heading">#</a></h2>
+<p>Feel free to experiment with the following shell commands to understand what they do. Most of these commands are safe to use, except for <code class="docutils literal notranslate"><span class="pre">rm</span></code> and <code class="docutils literal notranslate"><span class="pre">kill</span></code>, which in some cases can be a bit risky—so proceed with caution when trying those.</p>
+<section id="file-and-directory-management">
+<h3>File and Directory Management<a class="headerlink" href="#file-and-directory-management" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span></code>: List files and directories in the current directory</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span></code>: Change directory</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">directory</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pwd</span></code>: Print the current working directory</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mkdir</span></code>: Create a new directory</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">directory_name</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">rm</span></code>: Remove files or directories</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="n">file_name</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="n">directory_name</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span></code>: Copy files or directories</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">source_file</span> <span class="n">destination_file</span>
+<span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">source_directory</span> <span class="n">destination_directory</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mv</span></code>: Move or rename files or directories</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mv</span> <span class="n">old_name</span> <span class="n">new_name</span>
+<span class="n">mv</span> <span class="n">file_name</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">destination</span><span class="o">/</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remote server with CLI doesn’t have feature like Recycle Bin, if you <code class="docutils literal notranslate"><span class="pre">rm</span></code> any file, it will just completely disappear. BE CAREFUL!</p>
+</div>
+</section>
+<section id="viewing-and-editing-files">
+<h3>Viewing and Editing Files<a class="headerlink" href="#viewing-and-editing-files" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">cat</span></code>: Display the contents of a file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">file_name</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">less</span></code>: View file contents with scrolling capabilities</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">less</span> <span class="n">file_name</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">nano</span></code> or <code class="docutils literal notranslate"><span class="pre">vi</span></code>: Text editors for editing files</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="n">file_name</span>
+<span class="n">vi</span> <span class="n">file_name</span>
+</pre></div>
+</div>
+</section>
+<section id="system-information">
+<h3>System Information<a class="headerlink" href="#system-information" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">du</span></code>: Display disk usage of files and directories</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">du</span> <span class="o">-</span><span class="n">h</span> <span class="n">file_name</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">top</span></code>: Display real-time system processes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">top</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ps</span></code>: Display information about active processes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ps</span> <span class="n">aux</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">free</span></code>: Display memory usage</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">free</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have technical issues such as being unable to save or move files, or if loading a dataset is too slow, the commands listed above might help.</p>
+</div>
+</section>
+<section id="networking">
+<h3>Networking<a class="headerlink" href="#networking" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">netstat</span></code>: Display network connections and routing tables</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netstat</span> <span class="o">-</span><span class="n">tulpn</span> <span class="o">|</span> <span class="n">grep</span> <span class="s1">&#39;:PORT_NUMBER&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you think a port is being used by someone else, check it to confirm.
+We’ll talk about port in later chapter.</p>
+</div>
+</section>
+<section id="others">
+<h3>Others<a class="headerlink" href="#others" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">kill</span></code>: Send a signal to terminate a process</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kill</span> <span class="n">PROCESS_ID</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">killall</span></code>: Sends a signal to  terminate all processes with a specified name</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">killall</span> <span class="n">PROCESS_NAME</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">screen</span></code>: Start a new terminal session</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">screen</span> <span class="o">-</span><span class="n">S</span> <span class="n">mysession</span>
+<span class="n">screen</span> <span class="o">-</span><span class="n">r</span> <span class="n">mysession</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you disconnect from a remote server, not all processes are terminated. Some may continue running and consume a lot of memory. In such cases, you’ll need to manually <code class="docutils literal notranslate"><span class="pre">kill</span></code> these processes.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you disconnect from a remote server, the <code class="docutils literal notranslate"><span class="pre">screen</span></code> session will remain active. If you want a process to keep running in the background even after you’ve disconnected, consider running it within a <code class="docutils literal notranslate"><span class="pre">screen</span></code> session.</p>
+</div>
+</section>
+</section>
+<section id="what-is-bashrc-and-bash-profile">
+<h2>What is .bashrc and .bash_profile?<a class="headerlink" href="#what-is-bashrc-and-bash-profile" title="Link to this heading">#</a></h2>
+<p>In Linux, .bashrc and .bash_profile are configuration files for the Bash shell that let you customize and manage your terminal environment.</p>
+<p>If this sounds complicated, just think of .bashrc and .bash_profile as places where your personalized settings are stored.</p>
+<!-- The .bashrc file runs whenever you open a new terminal window, setting up configurations for interactive non-login shells.
+
+The .bash_profile file is executed during login sessions, whether accessed directly or remotely, handling the setup for login shells.
+
+Both files let you configure environment variables, create aliases and functions, and customize your terminal prompt. While .bashrc applies settings for every new terminal session, .bash_profile is generally used to set environment variables and startup programs that need to be initialized only once per login session. --><section id="have-a-look">
+<h3>Have A Look<a class="headerlink" href="#have-a-look" title="Link to this heading">#</a></h3>
+<p>You can use a text editor to view the contents of your .bashrc file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="o">.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>It should look something like this (it doesn’t need to be exactly the same as in the image):
+<img alt="bashrc_1" src="../_images/bashrc_1.png" /></p>
+<p>This may seem complex, but you don’t need to understand every command—just let them be.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is generally safe to add new lines after the existing commands.
+However, unless you fully understand what these commands do, avoid modifying any pre-existing commands in <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> or <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code>.</p>
+</div>
+</section>
+<section id="alias">
+<h3>Alias<a class="headerlink" href="#alias" title="Link to this heading">#</a></h3>
+<p>An alias is a shortcut or a custom command that represents another command or a series of commands. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">wdir</span><span class="o">=</span><span class="s2">&quot;cd /work/$USER/&quot;</span>
+</pre></div>
+</div>
+<p>If you add this line to your .bashrc file and then run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Next time, you can simply type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wdir</span>
+</pre></div>
+</div>
+<p>and it will execute the command <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/work/$USER/</span></code>.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Chap_03_Linux"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chap_02_Login/_main.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Access the Remote Server</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Chap_04_Conda/_main.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Miniconda</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-linux">What is Linux?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-bash">What is bash?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-execute-command">How to Execute Command?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-commands">Basic commands</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-and-directory-management">File and Directory Management</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-and-editing-files">Viewing and Editing Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-information">System Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#networking">Networking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#others">Others</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-bashrc-and-bash-profile">What is .bashrc and .bash_profile?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#have-a-look">Have A Look</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alias">Alias</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By HSUAN-CHENG, LIN
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
